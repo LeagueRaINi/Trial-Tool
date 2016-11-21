@@ -1,0 +1,13 @@
+c:\users\rain\documents\visual studio 2015\Projects\Adobe_Trial_Reset_Beta\Adobe_Trial_Reset_Beta\bin\Debug\Adobe_Trial_Reset_Beta.exe.config
+c:\users\rain\documents\visual studio 2015\Projects\Adobe_Trial_Reset_Beta\Adobe_Trial_Reset_Beta\bin\Debug\Adobe_Trial_Reset_Beta.exe
+c:\users\rain\documents\visual studio 2015\Projects\Adobe_Trial_Reset_Beta\Adobe_Trial_Reset_Beta\bin\Debug\Adobe_Trial_Reset_Beta.pdb
+c:\users\rain\documents\visual studio 2015\Projects\Adobe_Trial_Reset_Beta\Adobe_Trial_Reset_Beta\bin\Debug\INIFileParser.dll
+c:\users\rain\documents\visual studio 2015\Projects\Adobe_Trial_Reset_Beta\Adobe_Trial_Reset_Beta\bin\Debug\MetroFramework.Design.dll
+c:\users\rain\documents\visual studio 2015\Projects\Adobe_Trial_Reset_Beta\Adobe_Trial_Reset_Beta\bin\Debug\MetroFramework.dll
+c:\users\rain\documents\visual studio 2015\Projects\Adobe_Trial_Reset_Beta\Adobe_Trial_Reset_Beta\bin\Debug\MetroFramework.Fonts.dll
+c:\users\rain\documents\visual studio 2015\Projects\Adobe_Trial_Reset_Beta\Adobe_Trial_Reset_Beta\obj\Debug\Adobe_Trial_Reset_Beta.csprojResolveAssemblyReference.cache
+c:\users\rain\documents\visual studio 2015\Projects\Adobe_Trial_Reset_Beta\Adobe_Trial_Reset_Beta\obj\Debug\Adobe_Trial_Reset_Beta.Form1.resources
+c:\users\rain\documents\visual studio 2015\Projects\Adobe_Trial_Reset_Beta\Adobe_Trial_Reset_Beta\obj\Debug\Adobe_Trial_Reset_Beta.csproj.GenerateResource.Cache
+c:\users\rain\documents\visual studio 2015\Projects\Adobe_Trial_Reset_Beta\Adobe_Trial_Reset_Beta\obj\Debug\Adobe_Trial_Reset_Beta.exe
+c:\users\rain\documents\visual studio 2015\Projects\Adobe_Trial_Reset_Beta\Adobe_Trial_Reset_Beta\obj\Debug\Adobe_Trial_Reset_Beta.pdb
+c:\users\rain\documents\visual studio 2015\Projects\Adobe_Trial_Reset_Beta\Adobe_Trial_Reset_Beta\obj\Debug\Trial_Tool.Properties.Resources.resources
