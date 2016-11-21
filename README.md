@@ -3,6 +3,6 @@ ___
 # Compatible Adobe Products
 -After Effects CC (2017 | 2014)
 
--Photoshop CC (2015.5 | 2017)
+-Photoshop CC (2017 | 2015.5)
 
 ![Preview](http://i.imgur.com/4xqeA1v.png)
