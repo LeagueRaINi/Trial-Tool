@@ -10,3 +10,12 @@ c:\users\rain\documents\visual studio 2015\Projects\Adobe_Trial_Reset_Beta\Adobe
 c:\users\rain\documents\visual studio 2015\Projects\Adobe_Trial_Reset_Beta\Adobe_Trial_Reset_Beta\obj\Release\Adobe_Trial_Reset_Beta.exe
 c:\users\rain\documents\visual studio 2015\Projects\Adobe_Trial_Reset_Beta\Adobe_Trial_Reset_Beta\obj\Release\Adobe_Trial_Reset_Beta.pdb
 c:\users\rain\documents\visual studio 2015\Projects\Adobe_Trial_Reset_Beta\Adobe_Trial_Reset_Beta\obj\Release\Trial_Tool.Properties.Resources.resources
+F:\RaIN Repos New\Trial-Tool\Adobe_Trial_Reset_Beta\bin\Release\Adobe_Trial_Reset_Beta.exe.config
+F:\RaIN Repos New\Trial-Tool\Adobe_Trial_Reset_Beta\bin\Release\Adobe_Trial_Reset_Beta.exe
+F:\RaIN Repos New\Trial-Tool\Adobe_Trial_Reset_Beta\bin\Release\Adobe_Trial_Reset_Beta.pdb
+F:\RaIN Repos New\Trial-Tool\Adobe_Trial_Reset_Beta\obj\Release\Adobe_Trial_Reset_Beta.csprojResolveAssemblyReference.cache
+F:\RaIN Repos New\Trial-Tool\Adobe_Trial_Reset_Beta\obj\Release\Adobe_Trial_Reset_Beta.Form1.resources
+F:\RaIN Repos New\Trial-Tool\Adobe_Trial_Reset_Beta\obj\Release\Trial_Tool.Properties.Resources.resources
+F:\RaIN Repos New\Trial-Tool\Adobe_Trial_Reset_Beta\obj\Release\Adobe_Trial_Reset_Beta.csproj.GenerateResource.Cache
+F:\RaIN Repos New\Trial-Tool\Adobe_Trial_Reset_Beta\obj\Release\Adobe_Trial_Reset_Beta.exe
+F:\RaIN Repos New\Trial-Tool\Adobe_Trial_Reset_Beta\obj\Release\Adobe_Trial_Reset_Beta.pdb

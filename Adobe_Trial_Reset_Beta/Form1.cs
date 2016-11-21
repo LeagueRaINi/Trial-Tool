@@ -101,6 +101,7 @@ namespace Adobe_Trial_Reset_Beta
             if (File.Exists(AfterEffects))
             {
                 metroButton2.Enabled = true;
+                metroButton1.Text = "Found!";
             }
             else
             {
@@ -128,6 +129,7 @@ namespace Adobe_Trial_Reset_Beta
                             if (File.Exists(AfterEffects))
                             {
                                 metroButton2.Enabled = true;
+                                metroButton1.Text = "Found!";
                             }
 
                         }
@@ -153,6 +155,7 @@ namespace Adobe_Trial_Reset_Beta
             if (File.Exists(Photoshop))
             {
                 metroButton2.Enabled = true;
+                metroButton1.Text = "Found!";
             }
             else
             {
@@ -180,6 +183,7 @@ namespace Adobe_Trial_Reset_Beta
                             if (File.Exists(Photoshop))
                             {
                                 metroButton2.Enabled = true;
+                                metroButton1.Text = "Found!";
                             }
 
                         }
@@ -201,14 +205,10 @@ namespace Adobe_Trial_Reset_Beta
             if (metroComboBox1.SelectedItem == "After Effects")
             {
                 AfterEffects();
-
-                metroButton1.Enabled = true;
             }
             else if (metroComboBox1.SelectedItem == "Photoshop")
             {
                 Photoshop();
-
-                metroButton1.Enabled = true;
             }
         }
 
