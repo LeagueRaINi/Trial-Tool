@@ -96,7 +96,7 @@ namespace Adobe_Trial_Reset_Beta
         {
             var pDirectory = new FileIniDataParser();
             var dDirectory = pDirectory.ReadFile("Config.ini");
-            string AfterEffects = dDirectory["Directory"]["Photoshop"];
+            string AfterEffects = dDirectory["Directory"]["After Effects"];
 
             if (File.Exists(AfterEffects))
             {
