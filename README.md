@@ -9,4 +9,4 @@ ___
 
 > If you have Registry Paths for the 32x ones or older version feel free to make a pull request
 
-![Preview](http://i.imgur.com/4xqeA1v.png)
+![Preview](http://i.imgur.com/8mX6XJB.gif)
