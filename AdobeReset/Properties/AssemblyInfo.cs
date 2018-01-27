@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // Allgemeine Informationen über eine Assembly werden über die folgenden
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
-[assembly: AssemblyTitle("Uffya Adobe Reset")]
-[assembly: AssemblyDescription("Resets Adobe Trial for PhotoshopCC(2017) & After EffectsCC(2017)")]
+[assembly: AssemblyTitle("AdobeReset")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("AimFactory.ml")]
-[assembly: AssemblyProduct("Uffya Adobe Reset")]
-[assembly: AssemblyCopyright("Copyright ©  AimFactory 2017")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("AdobeReset")]
+[assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Die folgende GUID bestimmt die ID der Typbibliothek, wenn dieses Projekt für COM verfügbar gemacht wird
-[assembly: Guid("bf394894-194b-4616-b126-d846dc13ddf5")]
+[assembly: Guid("3b68ea89-d16d-4cc8-a5bc-a684dec1512c")]
 
 // Versionsinformationen für eine Assembly bestehen aus den folgenden vier Werten:
 //

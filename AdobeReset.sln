@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2008
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdobeReset", "AdobeReset\AdobeReset.csproj", "{3B68EA89-D16D-4CC8-A5BC-A684DEC1512C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B68EA89-D16D-4CC8-A5BC-A684DEC1512C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B68EA89-D16D-4CC8-A5BC-A684DEC1512C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B68EA89-D16D-4CC8-A5BC-A684DEC1512C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B68EA89-D16D-4CC8-A5BC-A684DEC1512C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2108B063-9232-41B3-B137-7D88317E4155}
+	EndGlobalSection
+EndGlobal
