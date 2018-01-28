@@ -10,6 +10,8 @@ namespace AdobeReset
 {
     class Program
     {
+        static DateTime _dateTimeNow = DateTime.Now;
+
         static string adobeFolderPath = Path.Combine(Environment.Is64BitOperatingSystem
             ? Environment.GetEnvironmentVariable("ProgramW6432")
             : Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles), "Adobe");
@@ -65,7 +67,7 @@ namespace AdobeReset
 
                     if (!trialKeys.Any())
                     {
-                        Log($"could not find 'TrialSerialNumber' in file '{applicationFileNameShort}'");
+                        LogError($"could not find 'TrialSerialNumber' in file '{applicationFileNameShort}'");
                         continue;
                     }
 
@@ -112,6 +114,8 @@ namespace AdobeReset
                 Log("----------------------------------------------]");
             }
 
+            LogInfo("finished, tool can now be closed");
+
         EXIT:
             Console.ReadKey();
         }
@@ -146,28 +150,24 @@ namespace AdobeReset
         #region ConsoleExtensions
 
         static void Log(string text)
-            => Console.WriteLine($"[+] {text}");
+            => Console.WriteLine($"[+][{_dateTimeNow.ToLongTimeString()}] {text}");
 
         static void LogInfo(string info)
         {
-            ConsoleColor oldColor = Console.ForegroundColor;
-
             Console.ForegroundColor = ConsoleColor.Green;
 
-            Console.WriteLine($"[?] {info}");
+            Console.WriteLine($"[?][{_dateTimeNow.ToLongTimeString()}] {info}");
 
-            Console.ForegroundColor = oldColor;
+            Console.ResetColor();
         }
 
         static void LogError(string error)
         {
-            ConsoleColor oldColor = Console.ForegroundColor;
-
             Console.ForegroundColor = ConsoleColor.Red;
 
-            Console.WriteLine($"[!] {error}");
+            Console.WriteLine($"[!][{_dateTimeNow.ToLongTimeString()}] {error}");
 
-            Console.ForegroundColor = oldColor;
+            Console.ResetColor();
         }
 
         #endregion
