@@ -1,175 +1,83 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using System.Text;
+using System.Threading.Tasks;
 using System.Xml.Linq;
-using System.Collections.Generic;
-using System.Security.Cryptography;
+using AdobeReset.Helpers;
 
 namespace AdobeReset
 {
-    class Program
+    internal class Program
     {
-        static DateTime _dateTimeNow = DateTime.Now;
-
-        static string adobeFolderPath = Path.Combine(Environment.Is64BitOperatingSystem
-            ? Environment.GetEnvironmentVariable("ProgramW6432")
-            : Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles), "Adobe");
-
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            Console.Title = "Adobe Trial Reset Tool -by RaINi";
+            Console.Title = "Adobe Reset - by RaIN";
+            Console.SetWindowSize(Console.LargestWindowWidth - 20, Console.LargestWindowHeight - 20);
 
-            if (!Directory.Exists(adobeFolderPath))
+            try
             {
-                LogError($"could not find folder '{adobeFolderPath}'");
-                goto EXIT;
-            }
+                var adobePath = Path.Combine(Environment.Is64BitOperatingSystem
+                    ? Environment.GetEnvironmentVariable("ProgramW6432")
+                    : Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles), "Adobe");
+                if (!Directory.Exists(adobePath))
+                    throw new Exception("could not find adobe main folder");
 
-            Log("----------------------------------------------]");
+                var potentialProductFolders = new DirectoryInfo(adobePath).GetDirectories().Where(x => x.Name.StartsWith("Adobe")).ToList();
+                if (!potentialProductFolders.Any())
+                    throw new Exception($"could not find any adobe product in {adobePath}");
 
-            IEnumerable<DirectoryInfo> potentialProductFolders = new DirectoryInfo(adobeFolderPath).GetDirectories().Where(x => x.Name.StartsWith("Adobe"));
-
-            if (!potentialProductFolders.Any())
-            {
-                LogError($"could not find any potential adobe products in '{adobeFolderPath}'");
-                return;
-            }
-
-            foreach (DirectoryInfo potentialProductFolder in potentialProductFolders)
-            {
-                LogInfo($"scanning '{potentialProductFolder.FullName}'");
-
-                string[] applicationFiles = Directory.GetFiles(potentialProductFolder.FullName, "application.xml", SearchOption.AllDirectories);
-
-                if (!applicationFiles.Any())
+                var randomChars = "0123456789".ToArray();
+                Parallel.ForEach(potentialProductFolders, (folder) =>
                 {
-                    LogError("could not find any 'application.xml'");
-                    goto ENDLOOP;
-                }
+                    Logger.Debug("scanning folder: {0}", folder);
 
-                foreach (string applicationFile in applicationFiles)
-                {
-                    string applicationFileNameShort = applicationFile.Remove(0, potentialProductFolder.FullName.Length);
+                    var applicationFiles = Directory.GetFiles(folder.FullName, "application.xml", SearchOption.AllDirectories);
+                    if (!applicationFiles.Any())
+                        return;
 
-                    XDocument applicationDoc = null;
-
-                    try
+                    foreach (var applicationFile in applicationFiles)
                     {
-                        applicationDoc = XDocument.Load(applicationFile);
-                    }
-                    catch (UnauthorizedAccessException)
-                    {
-                        LogError($"could not load file '{applicationFileNameShort}'");
-                    }
+                        Logger.Debug("searching key in {0}", applicationFile);
 
-                    IEnumerable<XElement> trialKeys = applicationDoc.Descendants("Data").Where(x => (string)x.Attribute("key") == "TrialSerialNumber");
+                        var applicationDoc = XDocument.Load(applicationFile);
+                        var needsSave = false;
 
-                    if (!trialKeys.Any())
-                    {
-                        LogError($"could not find 'TrialSerialNumber' in file '{applicationFileNameShort}'");
-                        continue;
-                    }
-
-                    bool needsSave = false;
-
-                    foreach (XElement trialKey in trialKeys)
-                    {
-                        string key = trialKey.Value;
-
-                        if (key.Length < 15)
+                        foreach (var trialKey in applicationDoc.Descendants("Data").Where(x => (string)x.Attribute("key") == "TrialSerialNumber").ToList())
                         {
-                            LogError($"key '{key} in file '{applicationFileNameShort}' had an incorrect size ({key.Length})");
+                            var key = trialKey.Value;
+                            if (key.Length < 15)
+                                continue;
+
+                            var randomNumberLength = key.Length - 15;
+                            var randomKey = key.Remove(15, randomNumberLength) + RandomGenerator.String(randomNumberLength, randomChars);
+
+                            trialKey.SetValue(randomKey);
+
+                            Logger.Debug("generated new key ({0}) for file {1}", randomKey, applicationFile);
+
+                            needsSave = true;
+                        }
+
+                        if (!needsSave)
+                        {
+                            Logger.Warning("no key found in file {0}", applicationFile);
                             continue;
                         }
 
-                        int randomNumberLength = key.Length - 15;
+                        applicationDoc.Save(applicationFile);
 
-                        string newKey = key.Remove(15, randomNumberLength) + GenerateRandomNumbers(randomNumberLength);
-
-                        LogInfo($"trial key '{key}' in file '{applicationFileNameShort}'");
-                        LogInfo($"new trial key '{newKey}'");
-
-                        trialKey.SetValue(newKey);
-
-                        needsSave = true;
+                        Logger.Success("refreshed key in {0}", applicationFile);
                     }
-
-                    if (needsSave)
-                    {
-                        try
-                        {
-                            applicationDoc.Save(applicationFile);
-
-                            LogInfo($"saved file '{applicationFileNameShort}'");
-                        }
-                        catch (UnauthorizedAccessException)
-                        {
-                            LogError($"could not save file '{applicationFileNameShort}'");
-                        }
-                    }
-                }
-
-            ENDLOOP:
-                Log("----------------------------------------------]");
+                });
+            }
+            catch (Exception e)
+            {
+                Logger.Exception(e);
             }
 
-            LogInfo("finished, tool can now be closed");
+            Logger.Info("press any key to exit");
 
-        EXIT:
             Console.ReadKey();
         }
-
-        #region Extensions
-
-        static string GenerateRandomNumbers(int length)
-        {
-            byte[] data = new byte[1];
-
-            using (RNGCryptoServiceProvider crypto = new RNGCryptoServiceProvider())
-            {
-                crypto.GetNonZeroBytes(data);
-
-                data = new byte[length];
-
-                crypto.GetNonZeroBytes(data);
-            }
-
-            StringBuilder result = new StringBuilder(length);
-
-            char[] chars = "1234567890".ToArray();
-
-            foreach (byte b in data)
-                result.Append(chars[b % (chars.Length)]);
-
-            return result.ToString();
-        }
-
-        #endregion
-
-        #region ConsoleExtensions
-
-        static void Log(string text)
-            => Console.WriteLine($"[+][{_dateTimeNow.ToLongTimeString()}] {text}");
-
-        static void LogInfo(string info)
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-
-            Console.WriteLine($"[?][{_dateTimeNow.ToLongTimeString()}] {info}");
-
-            Console.ResetColor();
-        }
-
-        static void LogError(string error)
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-
-            Console.WriteLine($"[!][{_dateTimeNow.ToLongTimeString()}] {error}");
-
-            Console.ResetColor();
-        }
-
-        #endregion
     }
 }
