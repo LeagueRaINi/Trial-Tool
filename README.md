@@ -1,3 +1,4 @@
+#this does not work for adobe 2019 products
 
 - should be working for every adobe product (didnt test the program on x32 systems)
 
