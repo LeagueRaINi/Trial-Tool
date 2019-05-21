@@ -1,7 +1,3 @@
-#this does not work for adobe 2019 products
+- should be working for every adobe product thats CC 2018 or older (didnt test the program on x32 systems) 
 
-- should be working for every adobe product (didnt test the program on x32 systems)
-
-- run it as admin if u get an access denied exception
-
-![Preview](https://i.imgur.com/ceGOPTK.png)
+![Preview](https://i.imgur.com/TvtTzHm.png)
