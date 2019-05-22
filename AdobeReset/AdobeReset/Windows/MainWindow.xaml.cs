@@ -95,6 +95,7 @@ namespace AdobeReset.Windows
                 return;
             }
 
+            var failedList = new ConcurrentBag<string>();
             Parallel.ForEach(AdobeProductsListBox.SelectedItems.Cast<AdobeProduct>(), (product) => {
                 foreach (var appFile in product.ApplicationFiles) {
                     var appDoc = XDocument.Load(appFile);
@@ -122,10 +123,15 @@ namespace AdobeReset.Windows
                     if (saveFile) {
                         appDoc.Save(appFile);
                     }
+                    else {
+                        failedList.Add(product.FolderName);
+                    }
                 }
             });
 
-            MessageWindow.Show("Info", "Finished!");
+            MessageWindow.Show("Info", failedList.Any()
+                ? $"Failed to reset:\n{string.Join("\n", failedList)}"
+                : "Finished");
         }
     }
 }

@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="MessageWindow"
-        Height="189.155"
-        Width="278.207"
+        Height="145.655"
+        Width="218.207"
         Background="#CC191919"
         AllowsTransparency="true"
         WindowStyle="None"
@@ -58,32 +58,28 @@
                 </Label>
             </Grid>
         </Border>
-        <Border x:Name="MessageBorder"
-                BorderBrush="#FF191919"
-                Background="#FF212121"
-                BorderThickness="1"
-                HorizontalAlignment="Left"
-                Height="100"
-                Margin="10,41,0,0"
-                VerticalAlignment="Top"
-                Width="255"
-                SnapsToDevicePixels="True">
-            <ScrollViewer>
-                <TextBlock x:Name="MessageTextBlock"
-                           Text=""
-                           TextWrapping="Wrap"
-                           Foreground="#FFD1D1D1"
-                           Padding="4 1 2 1"/>
-            </ScrollViewer>
-        </Border>
+        <ScrollViewer Margin="10,41,10,50">
+            <TextBlock x:Name="MessageTextBlock"
+                       Text="Hello it's a me a message window :>"
+                       TextWrapping="Wrap"
+                       Foreground="#FFD1D1D1"
+                       Padding="4 1 2 1"
+                       TextAlignment="Center"/>
+        </ScrollViewer>
+        <Separator Margin="10,0,10,38"
+                   Height="12"
+                   VerticalAlignment="Bottom"
+                   Background="#B2D1D1D1"/>
         <WrapPanel x:Name="ButtonsWrapPanel"
-                   Margin="10,148,10,8"
-                   HorizontalAlignment="Right"
-                   Orientation="Horizontal">
+                   Orientation="Horizontal"
+                   Height="28"
+                   VerticalAlignment="Bottom"
+                   HorizontalAlignment="Center"
+                   Margin="10,0,10,10">
             <Button x:Name="OkButton"
                     Content="Ok"
-                    Width="70"
-                    Height="30"
+                    Width="60"
+                    Height="28"
                     Style="{DynamicResource PrimaryButtonStyle}"
                     Margin="1 0 0 0"
                     Padding="1 0 0 0"
@@ -92,8 +88,8 @@
                     Visibility="Collapsed"/>
             <Button x:Name="YesButton"
                     Content="Yes"
-                    Width="70"
-                    Height="30"
+                    Width="60"
+                    Height="28"
                     Style="{DynamicResource PrimaryButtonStyle}"
                     Margin="1 0 0 0"
                     Padding="1 0 0 0"
@@ -102,8 +98,8 @@
                     Visibility="Collapsed"/>
             <Button x:Name="NoButton"
                     Content="No"
-                    Width="70"
-                    Height="30"
+                    Width="60"
+                    Height="28"
                     Style="{DynamicResource PrimaryButtonStyle}"
                     Margin="1 0 0 0"
                     Padding="1 0 0 0"
@@ -112,8 +108,8 @@
                     Visibility="Collapsed"/>
             <Button x:Name="CancelButton"
                     Content="Cancel"
-                    Width="80"
-                    Height="30"
+                    Width="60"
+                    Height="28"
                     Style="{DynamicResource PrimaryButtonStyle}"
                     Margin="1 0 0 0"
                     Padding="1 0 0 0"
